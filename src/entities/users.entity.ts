@@ -20,6 +20,9 @@ export class User {
   @Column({ length: 120 })
   password: string;
 
+  @Column()
+  telephone: string;
+
   @Column({ default: true })
   isActive: boolean;
 
