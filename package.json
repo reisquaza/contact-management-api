@@ -1,32 +1,25 @@
 {
-  "name": "contact-management-api",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:reisquaza/contact-management-api.git",
-  "author": "Reisquaza <100309835+Reisquaza@users.noreply.github.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/bcrypt": "^5.0.0",
-    "@types/express": "^4.17.16",
-    "@types/jsonwebtoken": "^9.0.1",
-    "@types/node": "^18.11.18",
-    "nodemon": "^2.0.20",
-    "sucrase": "^3.29.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^4.9.5"
-  },
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "class-transformer": "^0.5.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.0",
     "pg": "^8.9.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.11",
-    "uuid": "^9.0.0"
+    "typeorm": "^0.3.11"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/node": "^18.11.19",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
   },
   "scripts": {
-    "typeorm": "typeorm-ts-node-commonjs",
-    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "typeorm": "typeorm-ts-node-commonjs"
   }
 }

@@ -1,34 +1,41 @@
 import {
   Entity,
   Column,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  PrimaryGeneratedColumn,
+  OneToMany,
 } from "typeorm";
+import { Exclude } from "class-transformer";
+import { Contact } from "./contacts.entity";
 
-@Entity()
+@Entity("user")
 export class User {
   @PrimaryGeneratedColumn("uuid")
-  readonly id: string;
+  id: string;
 
-  @Column({ length: 60 })
+  @Column()
   name: string;
 
-  @Column({ length: 60, unique: true })
+  @Column()
   email: string;
 
-  @Column({ length: 120 })
+  @Column()
+  @Exclude()
   password: string;
 
   @Column()
-  telephone: string;
-
-  @Column({ default: true })
-  isActive: boolean;
+  phoneNumber: string;
 
   @CreateDateColumn()
   createdAt: Date;
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @Column({ default: true })
+  isActive: boolean;
+
+  @OneToMany((type) => Contact, (contact) => contact.user, { eager: true })
+  contacts: Contact[];
 }
